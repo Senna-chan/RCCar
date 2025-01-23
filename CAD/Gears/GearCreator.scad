@@ -1,4 +1,4 @@
-use <gears.scad>
+use <../Common/gears.scad>
 
 // Type to generate. Spur gear, bevel gear or shifter
 type = "shifter"; // ["spur", "bevel", "shifter"]
@@ -95,7 +95,7 @@ module createSpurGear() {
         }
 
         difference(){
-            stirnrad (modul=Module, zahnzahl=teeth, breite=width, bohrung=bore, nabendurchmesser=0, nabendicke=0, eingriffswinkel=20, schraegungswinkel=0, optimiert=false);
+            spur_gear (modul=Module, tooth_number=teeth, width=width, bore=bore, pressure_angle=20, helix_angle=0, optimized=false);
             if(keyed){
                 key();
             }
@@ -105,7 +105,7 @@ module createSpurGear() {
 
 module createBevelGear(){
     difference(){
-        kegelrad(modul=Module, zahnzahl=teeth,  teilkegelwinkel=45, zahnbreite=width, bohrung=bore, eingriffswinkel=20, schraegungswinkel=0);
+        bevel_gear(modul=Module, tooth_number=teeth,  partial_cone_angle=45, tooth_width=width, bore=bore, pressure_angle=20, helix_angle=0);
         if(keyed){
             key();
         }
@@ -125,17 +125,23 @@ module createShifter()
             cylinder(h = fork_width, r = shifter_radius + 1);    
             translate([0,0,-0.1]) cylinder(h = (fork_width + 0.2), r = fork_radius);    
         }
+        cylinder(h = width * 3, d = bore, center = true);
+        if(keyed){
+            key();
+        }
     }
 
     // // 
     if(dog_side == "back" || dog_side == "both")
     {
+        echo("back");
         translate([0,0,-dog_height])
         createDogTeeth();
     }
     if(dog_side == "front" || dog_side == "both")
     {
-        translate([0,0,shifter_width])
+        echo("front");
+        translate([0,0,width])
         createDogTeeth();
     }
 }
