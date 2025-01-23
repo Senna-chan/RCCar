@@ -1,0 +1,16 @@
+{
+    "parameterSets": {
+        "design default values": {
+            "Module": "1",
+            "Teeth": "16",
+            "bore": "3",
+            "dog_height": "1",
+            "dog_offset": "3",
+            "dog_scale": "0.4",
+            "key_height": "1",
+            "key_width": "1",
+            "width": "5"
+        }
+    },
+    "fileFormatVersion": "1"
+}
