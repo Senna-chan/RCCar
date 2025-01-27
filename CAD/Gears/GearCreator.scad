@@ -1,7 +1,7 @@
 use <../Common/gears.scad>
 
-// Type to generate. Spur gear, bevel gear or shifter
-type = "shifter"; // ["spur", "bevel", "shifter","test"]
+// Type to generate. Spur gear, bevel gear, shifter or shifterfork
+type = "shifter"; // ["spur", "bevel", "shifter","shifterfork","test"]
 
 /* [Basic Gear Parameters] */
 // Number of teeth
@@ -42,14 +42,24 @@ dog_side = "back"; // ["back","front","both"]
 dog_dir = "outside"; // ["inside","outside"]
 
 /* [Shifter parameters] */
-// Shifter width. If not set to 0 then use this as the width of the shifter
+// Shifter width. If 0 then use the fork_width * 3 as width.
 shifter_width = 0; // 0.1
-// Shifter diameter
+// Diameter of the shifter
 shifter_diameter = 15; // 0.1
-// Fork width where the fork can make contact
+// Fork width where the fork prongs can make contact
 fork_width = 1; // 0.1
-// Fork diameter for interfacing with the shifter
+// Diameter between the fork prongs for the shifter placement
 fork_diameter = 12; // 0.1
+
+/* [Shifter fork parameters] */
+// Angle of the arc for the shifter interface
+fork_shifter_angle = 180; // 1
+// Hole diameter for the fork shift_method
+fork_bore = 3; // 0.1
+// Height of the fork rod from the highest point of the shifterinterface to the lowest point of the bore
+fork_rod_height = 10; // 0.1
+// Angle for the fork rod
+fork_rod_angle = 0; // [-45:45]
 
 /* [Hidden] */
 dog_roundness_compensation = 0.6;
@@ -204,6 +214,28 @@ module createShifter() {
     }
 }
 
+module createShifterFork(){
+    shifter_rod_width = fork_bore + 2;
+    linear_extrude(fork_width){
+        arc(radius = fork_diameter / 2, thickness = 1, angle=fork_shifter_angle);
+        
+        rotate(fork_rod_angle, [0,0,1]) 
+         translate([fork_diameter / 2 + 1,-(shifter_rod_width / 2)]) 
+       {
+           square([fork_rod_height,shifter_rod_width]);
+           difference(){
+                translate([-1, 0 ,0]) square([1,shifter_rod_width]);
+                translate([-1, shifter_rod_width / 2 ,0]) resize([1,shifter_rod_width,0])  circle();
+           }
+           translate([fork_rod_height + (fork_bore / 2), shifter_rod_width / 2,0]) 
+           difference(){
+               circle(d = shifter_rod_width);
+               circle(d = fork_bore);
+           }
+   }
+    }
+}
+
 $fn = 100;
 
 if(type == "shifter") {
@@ -212,6 +244,8 @@ if(type == "shifter") {
     createSpurGear();
 } else if(type == "bevel") {
     createBevelGear();
+} else if(type == "shifterfork") {
+    createShifterFork();
 } else if(type == "test") {
     
 }
