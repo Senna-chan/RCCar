@@ -52,6 +52,7 @@ fork_width = 1; // 0.1
 fork_diameter = 12; // 0.1
 
 /* [Shifter fork parameters] */
+fork_selected_type = "fork"; // ["fork","cylinder"]
 // Angle of the arc for the shifter interface
 fork_shifter_angle = 180; // 1
 // Hole diameter for the fork shift_method
@@ -62,6 +63,11 @@ fork_rod_height = 10; // 0.1
 fork_rod_angle = 0; // [-45:45]
 // Thickness of the fork prongs
 fork_thickness = 1; // 0.1
+/* [Shifter cylinder parameters] */
+// Diameter of the cylinder fork type
+fork_cylinder_diameter = 8.0; // 0.1
+// Rotation for the shifter engagement
+fork_cylinder_engagement_angle = 15; // 0.1
 
 /* [Hidden] */
 dog_roundness_compensation = 0.6;
@@ -246,6 +252,19 @@ module createShifter()
         translate([ 0, 0, width ]) createOutsideDogTeeth();
     }
 }
+module createShifterCylinder(){
+    fork_cylinder_radius = fork_cylinder_diameter / 2;
+    translate([0,0,fork_thickness / 2]) rotate(fork_cylinder_engagement_angle, [0,1,0]) 
+    {
+        cylinder(h = 0.5, r = fork_cylinder_radius + 0.5);
+    }
+    translate([fork_cylinder_radius,0, 0])rotate(90,[0,1,0]) cylinder(h = 0.3, r = 0.5);
+    %difference(){
+        cylinder(h = fork_thickness, r = fork_cylinder_radius);
+        translate([0,0,-0.05]) cylinder(h = fork_thickness + 0.1, r = fork_bore / 2);
+    }
+    // key();    
+}
 
 module createShifterFork()
 {
@@ -293,7 +312,11 @@ else if (type == "bevel")
 }
 else if (type == "fork")
 {
-    createShifterFork();
+    if(fork_selected_type == "fork"){
+        createShifterFork();
+    } else { 
+        createShifterCylinder();
+    }
 }
 else if (type == "shifter&fork")
 {
