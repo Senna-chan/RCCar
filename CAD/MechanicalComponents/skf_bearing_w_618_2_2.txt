@@ -1,0 +1,10 @@
+﻿"Symbol";"Value";"Unit";
+"TraceParts.PartNumber";"10-27092016-074236";"";
+"REFERENCE";"W 618/2";"";
+"TraceParts.PartTitle";"Deep groove ball bearings, single row, stainless steel";"";
+"TraceParts.InstanceId";"10-27092016-0742367S5KO2H5GBTP417P81AOBON1S";"";
+"SUPPLIER";"SKF";"";
+"DESIGN";"Stainless steel single row deep groove ball bearing, Bore Ø 2 mm, Outside Ø 5 mm";"";
+"TRACEPARTS";"TRACEPARTS";"";
+"TraceParts.PartLanguage";"en";"";
+"TraceParts.PartVersion";"1.3.8";"";

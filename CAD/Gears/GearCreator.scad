@@ -1,4 +1,5 @@
 use <../Common/gears.scad>
+use <../Common/arc.scad>
 
 // Type to generate. Spur gear, bevel gear, shifter or shifterfork
 type = "shifter"; // ["spur", "bevel", "shifter","fork", "shifter&fork","test"]
@@ -67,7 +68,7 @@ fork_thickness = 1; // 0.1
 // Diameter of the cylinder fork type
 fork_cylinder_diameter = 8.0; // 0.1
 // Rotation for the shifter engagement
-fork_cylinder_engagement_angle = 15; // 0.1
+fork_cylinder_engagement_angle = 15; //[10.0:30.0]
 
 /* [Hidden] */
 dog_roundness_compensation = 0.6;
@@ -76,54 +77,6 @@ dogOff = dog_offset + (bore / 2) - dog_roundness_compensation;
 module rotate_about_point(rotation, rotation_vector, point)
 {
     rotate(rotation, rotation_vector) translate(-point) children();
-}
-
-/*
-radius: Outside radius of the arc
-thickness: Thickness between the inside and outside of the radius
-angle: The angle of the arc, anywhere between 0 and 360.
-*/
-module arc(radius, thickness, angle)
-{
-    intersection()
-    {
-        union()
-        {
-            rights = floor(angle / 90);
-            remain = angle - rights * 90;
-            if (angle > 90)
-            {
-                for (i = [0:rights - 1])
-                {
-                    rotate(i * 90 - (rights - 1) * 90 / 2)
-                    {
-                        polygon([
-                            [ 0, 0 ], [ radius + thickness, (radius + thickness) * tan(90 / 2) ],
-                            [ radius + thickness, -(radius + thickness) * tan(90 / 2) ]
-                        ]);
-                    }
-                }
-                rotate(-(rights) * 90 / 2) polygon([
-                    [ 0, 0 ], [ radius + thickness, 0 ], [ radius + thickness, -(radius + thickness) * tan(remain / 2) ]
-                ]);
-                rotate((rights) * 90 / 2) polygon([
-                    [ 0, 0 ], [ radius + thickness, (radius + thickness) * tan(remain / 2) ], [ radius + thickness, 0 ]
-                ]);
-            }
-            else
-            {
-                polygon([
-                    [ 0, 0 ], [ radius + thickness, (radius + thickness) * tan(angle / 2) ],
-                    [ radius + thickness, -(radius + thickness) * tan(angle / 2) ]
-                ]);
-            }
-        }
-        difference()
-        {
-            circle(radius + thickness);
-            circle(radius);
-        }
-    }
 }
 
 module dog(radius = dog_radius, thickness = dog_thickness, angle = dog_angle)
@@ -231,36 +184,43 @@ module createShifter()
         }
         if (dog_side == "back" || dog_side == "both")
         {
-            echo("iback");
             translate([ 0, 0, dog_height - 0.001 ]) createInsideDogTeeth();
         }
         if (dog_side == "front" || dog_side == "both")
         {
-            echo("ifront");
             translate([ 0, 0, width ]) createInsideDogTeeth();
         }
     }
 
     if (dog_side == "back" || dog_side == "both")
     {
-        echo("oback");
         translate([ 0, 0, -dog_height ]) createOutsideDogTeeth();
     }
     if (dog_side == "front" || dog_side == "both")
     {
-        echo("ofront");
         translate([ 0, 0, width ]) createOutsideDogTeeth();
     }
 }
 module createShifterCylinder(){
     fork_cylinder_radius = fork_cylinder_diameter / 2;
-    translate([0,0,fork_thickness / 2]) rotate(fork_cylinder_engagement_angle, [0,1,0]) 
-    {
-        cylinder(h = 0.5, r = fork_cylinder_radius + 0.5);
-    }
-    translate([fork_cylinder_radius,0, 0])rotate(90,[0,1,0]) cylinder(h = 0.3, r = 0.5);
-    %difference(){
-        cylinder(h = fork_thickness, r = fork_cylinder_radius);
+    difference(){
+        union(){
+            cylinder(h = fork_thickness, r = fork_cylinder_radius);
+            translate([0,0,fork_thickness / 2 - 0.25]) 
+             rotate(fork_cylinder_engagement_angle, [0,1,0]) 
+            {
+                cylinder(h = 0.5, r = fork_cylinder_radius + 0.5);
+                rotate(-fork_cylinder_engagement_angle, [0,1,0]){
+                translate([fork_cylinder_radius,0, -0.6])
+                    rotate(90,[0,1,0]) 
+                        cylinder(h = 0.4, r = 0.5);
+                    
+                translate([-fork_cylinder_radius - 0.3,0, 1.1])
+                    rotate(90,[0,1,0]) 
+                        cylinder(h = 0.4, r = 0.5);
+                }
+            }
+        }
         translate([0,0,-0.05]) cylinder(h = fork_thickness + 0.1, r = fork_bore / 2);
     }
     // key();    
