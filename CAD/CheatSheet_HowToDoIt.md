@@ -8,4 +8,5 @@ To convert mesh to solid do the following
 It should now be a solid
 
 # Bearing import
-- HOW DID I DO IT?
+- Import the STP file
+- Convert to part
