@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d2vt5c0yu7jpd"
+path="res://.godot/imported/RoundedCube.obj-f4ee22bd20bd63ee301980e595f008d8.mesh"
+
+[deps]
+
+files=["res://.godot/imported/RoundedCube.obj-f4ee22bd20bd63ee301980e595f008d8.mesh"]
+
+source_file="res://addons/xr-kit/examples/playground/assets/RoundedCube.obj"
+dest_files=["res://.godot/imported/RoundedCube.obj-f4ee22bd20bd63ee301980e595f008d8.mesh", "res://.godot/imported/RoundedCube.obj-f4ee22bd20bd63ee301980e595f008d8.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bk7ks5dyi4j4s"
+path="res://.godot/imported/dir_selector-Assemblyskf_bearing_w_618_2_2_1 (Solid).obj-a532b4acbc3539e5f5a90fbeea112270.mesh"
+
+[deps]
+
+files=["res://.godot/imported/dir_selector-Assemblyskf_bearing_w_618_2_2_1 (Solid).obj-a532b4acbc3539e5f5a90fbeea112270.mesh"]
+
+source_file="res://3DFiles/dir_selector-Assemblyskf_bearing_w_618_2_2_1 (Solid).obj"
+dest_files=["res://.godot/imported/dir_selector-Assemblyskf_bearing_w_618_2_2_1 (Solid).obj-a532b4acbc3539e5f5a90fbeea112270.mesh", "res://.godot/imported/dir_selector-Assemblyskf_bearing_w_618_2_2_1 (Solid).obj-a532b4acbc3539e5f5a90fbeea112270.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

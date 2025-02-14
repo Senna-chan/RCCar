@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dag3syvanbeld"
+path="res://.godot/imported/dir_selector-AssemblyGear_16t_5MM_Dogged.obj-677dff67f3c336a2fba20213d073a6d7.mesh"
+
+[deps]
+
+files=["res://.godot/imported/dir_selector-AssemblyGear_16t_5MM_Dogged.obj-677dff67f3c336a2fba20213d073a6d7.mesh"]
+
+source_file="res://3DFiles/dir_selector-AssemblyGear_16t_5MM_Dogged.obj"
+dest_files=["res://.godot/imported/dir_selector-AssemblyGear_16t_5MM_Dogged.obj-677dff67f3c336a2fba20213d073a6d7.mesh", "res://.godot/imported/dir_selector-AssemblyGear_16t_5MM_Dogged.obj-677dff67f3c336a2fba20213d073a6d7.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

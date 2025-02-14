@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cduxlfcyfckid"
+path="res://.godot/imported/Slider.obj-4e9713c27a6307384800e2e6b41880d9.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Slider.obj-4e9713c27a6307384800e2e6b41880d9.mesh"]
+
+source_file="res://addons/xr-kit/examples/playground/assets/Slider.obj"
+dest_files=["res://.godot/imported/Slider.obj-4e9713c27a6307384800e2e6b41880d9.mesh", "res://.godot/imported/Slider.obj-4e9713c27a6307384800e2e6b41880d9.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

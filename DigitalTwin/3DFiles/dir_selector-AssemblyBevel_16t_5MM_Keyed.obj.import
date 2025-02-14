@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bqjt4xaqrpeel"
+path="res://.godot/imported/dir_selector-AssemblyBevel_16t_5MM_Keyed.obj-7d93f9bddbd14ed4c1da5b3cff9b02e1.mesh"
+
+[deps]
+
+files=["res://.godot/imported/dir_selector-AssemblyBevel_16t_5MM_Keyed.obj-7d93f9bddbd14ed4c1da5b3cff9b02e1.mesh"]
+
+source_file="res://3DFiles/dir_selector-AssemblyBevel_16t_5MM_Keyed.obj"
+dest_files=["res://.godot/imported/dir_selector-AssemblyBevel_16t_5MM_Keyed.obj-7d93f9bddbd14ed4c1da5b3cff9b02e1.mesh", "res://.godot/imported/dir_selector-AssemblyBevel_16t_5MM_Keyed.obj-7d93f9bddbd14ed4c1da5b3cff9b02e1.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

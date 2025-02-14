@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://chol2xlfbq7cu"]
+[gd_scene load_steps=24 format=3 uid="uid://chol2xlfbq7cu"]
 
 [ext_resource type="Script" path="res://demo/src/DemoScene.gd" id="1_k7qca"]
 [ext_resource type="PackedScene" uid="uid://d2jihfohphuue" path="res://demo/components/UI.tscn" id="2_nqak5"]
@@ -7,6 +7,18 @@
 [ext_resource type="PackedScene" uid="uid://djhl3foqkj4e2" path="res://demo/components/Tunnel.tscn" id="3_kdh0b"]
 [ext_resource type="PackedScene" uid="uid://bb2lp50sjndus" path="res://demo/components/Environment.tscn" id="3_yqldq"]
 [ext_resource type="Terrain3DAssets" uid="uid://dal3jhw6241qg" path="res://demo/data/assets.tres" id="8_g2of2"]
+[ext_resource type="ArrayMesh" uid="uid://c2tmetc3vtcac" path="res://3DFiles/dir_selector-AssemblyBevelAxle001.obj" id="9_48nwu"]
+[ext_resource type="ArrayMesh" uid="uid://bqjt4xaqrpeel" path="res://3DFiles/dir_selector-AssemblyBevel_16t_5MM_Keyed.obj" id="10_quc3s"]
+[ext_resource type="ArrayMesh" uid="uid://dogtl7nuwxrtw" path="res://3DFiles/dir_selector-Assemblydir_selector.obj" id="11_cpar8"]
+[ext_resource type="ArrayMesh" uid="uid://dag3syvanbeld" path="res://3DFiles/dir_selector-AssemblyGear_16t_5MM_Dogged.obj" id="12_ylkbs"]
+[ext_resource type="ArrayMesh" uid="uid://b6iksjbpntun3" path="res://3DFiles/dir_selector-AssemblyGear_16t_5MM_Keyed.obj" id="13_rq0c7"]
+[ext_resource type="ArrayMesh" uid="uid://6p7xcukcwdho" path="res://3DFiles/dir_selector-AssemblyInputAxle.obj" id="14_uq3dk"]
+[ext_resource type="ArrayMesh" uid="uid://d2aq3jlsle4f1" path="res://3DFiles/dir_selector-AssemblyShiftAxle.obj" id="15_a1xm4"]
+[ext_resource type="ArrayMesh" uid="uid://blv166rcpq0jc" path="res://3DFiles/dir_selector-AssemblyShifterDirSelector.obj" id="16_per3l"]
+[ext_resource type="ArrayMesh" uid="uid://bk7ks5dyi4j4s" path="res://3DFiles/dir_selector-Assemblyskf_bearing_w_618_2_2_1 (Solid).obj" id="17_xbqka"]
+[ext_resource type="ArrayMesh" uid="uid://dduwc6lhnwjkr" path="res://3DFiles/dir_selector-AssemblyTransmission_Bearing.obj" id="18_0qx1n"]
+[ext_resource type="ArrayMesh" uid="uid://d0at4bdobqbe6" path="res://3DFiles/Shifter-Fork.obj" id="19_y4yn2"]
+[ext_resource type="ArrayMesh" uid="uid://btbm18ssbcra0" path="res://3DFiles/Shifter-Lever.obj" id="20_mnhx0"]
 
 [sub_resource type="Gradient" id="Gradient_vr1m7"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -87,3 +99,51 @@ assets = ExtResource("8_g2of2")
 collision_mask = 3
 top_level = true
 metadata/_edit_lock_ = true
+
+[node name="DirSelector-assemblyBevelAxle001" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 242.149, 105.155, -1839.19)
+mesh = ExtResource("9_48nwu")
+
+[node name="DirSelector-assemblyBevel16t5mmKeyed" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 242.149, 105.155, -1839.19)
+mesh = ExtResource("10_quc3s")
+
+[node name="DirSelector-assemblydirSelector" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 242.149, 105.155, -1839.19)
+mesh = ExtResource("11_cpar8")
+
+[node name="DirSelector-assemblyGear16t5mmDogged" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 242.149, 105.155, -1839.19)
+mesh = ExtResource("12_ylkbs")
+
+[node name="DirSelector-assemblyGear16t5mmKeyed" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 242.149, 105.155, -1839.19)
+mesh = ExtResource("13_rq0c7")
+
+[node name="DirSelector-assemblyInputAxle" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 242.149, 105.155, -1839.19)
+mesh = ExtResource("14_uq3dk")
+
+[node name="DirSelector-assemblyShiftAxle" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 242.149, 105.155, -1839.19)
+mesh = ExtResource("15_a1xm4")
+
+[node name="DirSelector-assemblyShifterDirSelector" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 242.149, 105.155, -1839.19)
+mesh = ExtResource("16_per3l")
+
+[node name="DirSelector-assemblyskfBearingW618221(solid)" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 242.149, 105.155, -1839.19)
+mesh = ExtResource("17_xbqka")
+
+[node name="DirSelector-assemblyTransmissionBearing" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 242.149, 105.155, -1839.19)
+mesh = ExtResource("18_0qx1n")
+
+[node name="Shifter-fork" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 242.149, 105.155, -1839.19)
+mesh = ExtResource("19_y4yn2")
+
+[node name="Shifter-lever" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 242.149, 105.155, -1839.19)
+mesh = ExtResource("20_mnhx0")

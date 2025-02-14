@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dxbyqkiw4fq7c"
+path="res://.godot/imported/CreditCard.obj-3f01df53f67953c38ad6433aecfc30fd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/CreditCard.obj-3f01df53f67953c38ad6433aecfc30fd.mesh"]
+
+source_file="res://addons/xr-kit/examples/playground/assets/CreditCard.obj"
+dest_files=["res://.godot/imported/CreditCard.obj-3f01df53f67953c38ad6433aecfc30fd.mesh", "res://.godot/imported/CreditCard.obj-3f01df53f67953c38ad6433aecfc30fd.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
