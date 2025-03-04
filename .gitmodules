@@ -1,0 +1,3 @@
+[submodule "DigitalTwin/Assets/ThirdParty/SpaceNavigator"]
+	path = DigitalTwin/Assets/ThirdParty/SpaceNavigator
+	url = https://github.com/PatHightree/SpaceNavigator.git
